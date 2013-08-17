@@ -15,16 +15,8 @@ module.exports = function(grunt) {
   var fixmyjs = require('fixmyjs');
 
   grunt.task.registerMultiTask('fixmyjs', 'Fix your JavaScript.', function() {
-
-    // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      config: '.jshintrc' // [.jshintrc], load your own config file
-      // diff: Similar to dry-run
-      // legacy: Use legacy fixmyjs
-      // indent-pref: [tabs|spaces], your indentation preference
-      // patch: Output a patch file to stdout
-      // dry-run: Performs a dry-run and shows you a diff
-      // silent: A useless option
+      config: '.jshintrc'
     });
 
     // Extend default options with options from specified jshintrc file
@@ -51,6 +43,7 @@ module.exports = function(grunt) {
       if (fixjs.length < 1) {
         grunt.log.warn('Destination not written because dest file was empty.');
       } else {
+
         // Write the destination file, and remove comments
         // before '#!/usr/bin/env node' as files are fixed.
         grunt.file.write(fp.dest, fixjs.replace(/(\/\/)(#!\/usr\/bin\/env node)/g, '$2'));
