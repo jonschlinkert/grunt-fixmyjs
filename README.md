@@ -124,7 +124,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 
  * 2013-08-17   v0.1.0   First commit.
-
-
-## Release History
-_(Nothing yet)_
