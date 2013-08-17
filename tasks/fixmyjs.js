@@ -18,7 +18,7 @@ module.exports = function(grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      // config: [.jshintrc], load your own config file
+      config: '.jshintrc' // [.jshintrc], load your own config file
       // diff: Similar to dry-run
       // legacy: Use legacy fixmyjs
       // indent-pref: [tabs|spaces], your indentation preference
@@ -28,8 +28,8 @@ module.exports = function(grunt) {
     });
 
     // Extend default options with options from specified jshintrc file
-    if (options.jshintrc) {
-      options = grunt.util._.extend(options, grunt.file.readJSON(options.jshintrc));
+    if (options.config) {
+      options.config = grunt.util._.extend(options.config, grunt.file.readJSON(options.config));
     }
 
     // Iterate over all specified file groups.

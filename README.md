@@ -43,7 +43,7 @@ grunt.initConfig({
 
 ### Options
 
-#### jshintrc
+#### config
 Type: `Object`
 Default value: `.jshintrc`
 
