@@ -36,60 +36,95 @@ grunt.initConfig({
     },
     your_target: {
       // Target-specific file lists and/or options go here.
-    },
-  },
-})
+    }
+  };
+});
 ```
 
 ### Options
 
-#### options.separator
+#### jshintrc
+Type: `Object`
+Default value: `.jshintrc`
+
+Load your own config file.
+
+#### diff
+Type: `Boolean`
+Default value: `False`
+
+Similar to dry-run
+
+#### legacy
+Type: `Boolean`
+Default value: `False`
+
+Use legacy fixmyjs
+
+#### indent
 Type: `String`
-Default value: `',  '`
+Default value: `spaces`
+Options: `tabs|spaces`
 
-A string value that is used to do something with whatever.
+Your indentation preference
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### patch
+Type: `Boolean`
+Default value: `False`
 
-A string value that is used to do something else with whatever else.
+Output a patch file to stdout
+
+#### dry
+Type: `Boolean`
+Default value: `False`
+
+Performs a dry-run and shows you a diff
+
+#### silent
+Type: `Boolean`
+Default value: `False`
+
+A useless option.
+
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  fixmyjs: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
 
 ```js
 grunt.initConfig({
   fixmyjs: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      jshintrc: '.jshintrc',
+      indent: 'spaces'
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
+    test: {
+      files: [
+        {expand: true, cwd: 'test/fixtures', src: ['**/*.js'], dest: 'test/actual/', ext: '.js'}
+      ]
+    }
+  }
+});
 ```
+
+## Related projects
+
+* [grunt-prettify](https://github.com/jonschlinkert/grunt-prettify)
+* [grunt-refactor](https://github.com/jonschlinkert/grunt-refactor)
+* [grunt-js2coffee](https://github.com/jonschlinkert/grunt-js2coffee)
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][].
+
+
+## Author
+
+* [Jon Schlinkert](https://github.com/jonschlinkert)
+
+
+## Release History
+
+ * 2013-08-17   v0.1.0   First commit.
+
 
 ## Release History
 _(Nothing yet)_
