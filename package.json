@@ -28,13 +28,15 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "fixmyjs": "~0.10.5",
+    "chalk": "~0.2.0"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.0",
     "grunt-contrib-clean": "~0.4.0a",
     "grunt-contrib-nodeunit": "~0.1.0",
     "grunt": "~0.4.1",
-    "fixmyjs": "~0.10.5",
-    "chalk": "~0.2.0",
     "time-grunt": "~0.1.1",
     "jshint": "~2.1.10"
   },
