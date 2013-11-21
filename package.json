@@ -1,11 +1,10 @@
 {
   "name": "grunt-fixmyjs",
-  "description": "Automatically fix silly lint errors.",
-  "version": "0.1.0",
+  "description": "Automatically fix JavaScript lint errors.",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/grunt-fixmyjs",
   "author": {
     "name": "Jon Schlinkert",
-    "email": "dev@sellside.com",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
@@ -28,17 +27,25 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "chalk": "~0.3.0",
+    "fixmyjs": "~0.13.1"
+  },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.1.0",
-    "grunt-contrib-clean": "~0.4.0a",
-    "grunt-contrib-nodeunit": "~0.1.0",
     "grunt": "~0.4.1",
-    "fixmyjs": "~0.10.5",
-    "chalk": "~0.2.0",
-    "time-grunt": "~0.1.1",
-    "jshint": "~2.1.10"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-nodeunit": "~0.2.2",
+    "jshint": "~2.3.0",
+    "time-grunt": "~0.2.2"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "grunt",
+    "task",
+    "fixmyjs",
+    "jshint",
+    "js hint",
+    "js lint"
   ]
 }

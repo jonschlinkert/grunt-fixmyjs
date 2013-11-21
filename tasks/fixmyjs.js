@@ -13,6 +13,7 @@ module.exports = function(grunt) {
 
   var chalk = require('chalk');
   var fixmyjs = require('fixmyjs');
+  var _ = grunt.util._;
 
   grunt.task.registerMultiTask('fixmyjs', 'Fix your JavaScript.', function() {
     var options = this.options({
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
 
     // Extend default options with options from specified jshintrc file
     if (options.config) {
-      options.config = grunt.util._.extend(options.config, grunt.file.readJSON(options.config));
+      options = _.extend(options, grunt.file.readJSON(options.config));
     }
 
     // Iterate over all specified file groups.
@@ -35,8 +36,10 @@ module.exports = function(grunt) {
         }
       }).map(grunt.file.read).join(grunt.util.normalizelf(grunt.util.linefeed));
 
+      var re = /(#!\/usr\/bin\/env node)/g;
+
       // First, comment out '#!/usr/bin/env node' since it breaks fixmyjs.
-      srcFile = srcFile.replace(/(#!\/usr\/bin\/env node)/g, '//$1');
+      srcFile = srcFile.replace(re, '//$1');
 
       // Handle options.
       var fixjs = fixJavaScript(srcFile, options);
@@ -46,7 +49,7 @@ module.exports = function(grunt) {
 
         // Write the destination file, and remove comments
         // before '#!/usr/bin/env node' as files are fixed.
-        grunt.file.write(fp.dest, fixjs.replace(/(\/\/)(#!\/usr\/bin\/env node)/g, '$2'));
+        grunt.file.write(fp.dest, fixjs.replace(re, '$2'));
 
         // Print a success message.
         grunt.log.ok('File "' + fp.dest + '" fixed' + chalk.green('...OK'));

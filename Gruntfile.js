@@ -33,11 +33,20 @@ module.exports = function(grunt) {
 
     fixmyjs: {
       options: {
-        jshintrc: '.jshintrc'
+        config: '.jshintrc',
+        curly: true,
+        quotmark: 'single',
+        plusplus: true,
+        asi: true
       },
       test: {
         files: [
           {expand: true, cwd: 'test/fixtures/js-beautify', src: ['**/*.js'], dest: 'tmp/fixed/', ext: '.js'}
+        ]
+      },
+      rss: {
+        files: [
+          {expand: true, cwd: 'tmp', src: ['*.js'], dest: 'tmp/fixed/', ext: '.js'}
         ]
       }
     },
@@ -59,7 +68,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'fixmyjs']); // 'nodeunit'
+  grunt.registerTask('test', ['fixmyjs']); // 'nodeunit'
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
