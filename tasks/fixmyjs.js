@@ -59,6 +59,11 @@ module.exports = function(grunt) {
 
   var fixJavaScript = function(source, options) {
     try {
+      if (options.legacy) {
+        var jshint = require('jshint').JSHINT;
+        jshint(source, options);
+        return fixmyjs(jshint.data(), source, options).run();
+      }
       return fixmyjs.fix(source, options);
     } catch (e) {
       grunt.log.error(e);
