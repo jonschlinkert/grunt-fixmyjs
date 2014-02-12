@@ -1,5 +1,4 @@
 node_modules
 tmp
 *.sublime-*
-
-test
+.DS_Store
