@@ -61,7 +61,7 @@ Default value: `False`
 
 Use legacy fixmyjs
 
-#### indent
+#### indentpref
 Type: `String`
 Default value: `spaces`
 Options: `tabs|spaces`
@@ -115,7 +115,7 @@ grunt.initConfig({
   fixmyjs: {
     options: {
       jshintrc: '.jshintrc',
-      indent: 'spaces'
+      indentpref: 'spaces'
     },
     test: {
       files: [
