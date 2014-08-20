@@ -10,9 +10,9 @@
 
 module.exports = function(grunt) {
 
-
   var chalk = require('chalk');
   var fixmyjs = require('fixmyjs');
+  var JSON5 = require('json5');
   var _ = grunt.util._;
 
   grunt.task.registerMultiTask('fixmyjs', 'Fix your JavaScript.', function() {
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
     // Extend default options with options from specified jshintrc file
     if (options.config) {
-      options = _.extend(options, grunt.file.readJSON(options.config));
+      options = _.extend(options, JSON5.parse(grunt.file.read(options.config)));
     }
 
     // Iterate over all specified file groups.
