@@ -30,7 +30,8 @@
   "dependencies": {
     "chalk": "~0.3.0",
     "fixmyjs": "~0.13.1",
-    "jshint": "~2.3.0"
+    "jshint": "~2.3.0",
+    "json5": "^0.2.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
