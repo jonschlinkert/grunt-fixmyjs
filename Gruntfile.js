@@ -1,8 +1,8 @@
-/*
+/**
  * grunt-fixmyjs
  * https://github.com/jonschlinkert/grunt-fixmyjs
  *
- * Copyright (c) 2013 Jon Schlinkert
+ * Copyright (c) 2014 Jon Schlinkert
  * Licensed under the MIT license.
  */
 
@@ -33,20 +33,20 @@ module.exports = function(grunt) {
 
     fixmyjs: {
       options: {
-        config: '.jshintrc',
         curly: true,
         quotmark: 'single',
         plusplus: true,
-        asi: true
+        asi: false
       },
       test: {
         files: [
-          {expand: true, cwd: 'test/fixtures/js-beautify', src: ['**/*.js'], dest: 'tmp/fixed/', ext: '.js'}
-        ]
-      },
-      rss: {
-        files: [
-          {expand: true, cwd: 'tmp', src: ['*.js'], dest: 'tmp/fixed/', ext: '.js'}
+          {
+            expand: true,
+            cwd: 'test/fixtures/js-beautify',
+            src: ['**/*.js'],
+            dest: 'tmp/fixed/',
+            ext: '.js'
+          }
         ]
       }
     },
