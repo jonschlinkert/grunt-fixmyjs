@@ -114,7 +114,7 @@ A useless option.
 grunt.initConfig({
   fixmyjs: {
     options: {
-      jshintrc: '.jshintrc',
+      config: '.jshintrc',
       indentpref: 'spaces'
     },
     test: {
