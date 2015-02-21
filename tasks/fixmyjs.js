@@ -36,20 +36,22 @@ module.exports = function(grunt) {
         }
       }).map(grunt.file.read).join(grunt.util.normalizelf(grunt.util.linefeed));
 
-      var re = /(#!\/usr\/bin\/env node)/g;
-
+      var escaped;
       // First, comment out '#!/usr/bin/env node' since it breaks fixmyjs.
-      srcFile = srcFile.replace(re, '//$1');
+      if (srcFile.indexOf('#!/usr') === 0) {
+        escaped = true;
+        srcFile = '//' + srcFile;
+      }
 
       // Handle options.
-      var fixjs = fixJavaScript(srcFile, options);
-      if (fixjs.length < 1) {
+      var fixedjs = fix(srcFile, options);
+      if (fixedjs.length < 1) {
         grunt.log.warn('Destination not written because dest file was empty.');
       } else {
-
-        // Write the destination file, and remove comments
-        // before '#!/usr/bin/env node' as files are fixed.
-        grunt.file.write(fp.dest, fixjs.replace(re, '$2'));
+        if (escaped) {
+          fixedjs = fixedjs.slice(2);
+        }
+        grunt.file.write(fp.dest, fixedjs);
 
         // Print a success message.
         grunt.log.ok('File "' + fp.dest + '" fixed' + chalk.green('...OK'));
@@ -57,7 +59,7 @@ module.exports = function(grunt) {
     });
   });
 
-  var fixJavaScript = function(source, options) {
+  function fix(source, options) {
     try {
       if (options.legacy) {
         var jshint = require('jshint').JSHINT;
@@ -69,5 +71,5 @@ module.exports = function(grunt) {
       grunt.log.error(e);
       grunt.fail.warn('JavaScript fixification failed.');
     }
-  };
+  }
 };
