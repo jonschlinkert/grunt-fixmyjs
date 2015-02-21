@@ -1,7 +1,7 @@
 {
   "name": "grunt-fixmyjs",
   "description": "Automatically fix JavaScript lint errors.",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "homepage": "https://github.com/jonschlinkert/grunt-fixmyjs",
   "author": {
     "name": "Jon Schlinkert",
