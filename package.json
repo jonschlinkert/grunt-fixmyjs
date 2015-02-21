@@ -7,18 +7,13 @@
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jonschlinkert/grunt-fixmyjs"
-  },
+  "repository": "jonschlinkert/grunt-fixmyjs",
   "bugs": {
     "url": "https://github.com/jonschlinkert/grunt-fixmyjs/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jonschlinkert/grunt-fixmyjs/blob/master/LICENSE-MIT"
-    }
+  "license": "MIT",
+  "files": [
+    "tasks/"
   ],
   "main": "Gruntfile.js",
   "engines": {
@@ -29,19 +24,19 @@
   },
   "dependencies": {
     "chalk": "^0.5.1",
-    "fixmyjs": "^1.0.x",
-    "jshint": "^2.5.5",
-    "json5": "^0.2.0"
+    "fixmyjs": "^1.0.3",
+    "jshint": "^2.6.0",
+    "json5": "^0.4.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-nodeunit": "~0.2.2",
-    "time-grunt": "~0.2.2"
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "time-grunt": "^1.0.0"
   },
   "keywords": [
-    "linting",
+    "fix",
     "fixmyjs",
     "grunt",
     "gruntplugin",
@@ -49,6 +44,8 @@
     "js",
     "jshint",
     "lint",
+    "linting",
+    "refactor",
     "task"
   ]
 }

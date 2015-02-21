@@ -1,9 +1,8 @@
-/**
- * grunt-fixmyjs
- * https://github.com/jonschlinkert/grunt-fixmyjs
+/*!
+ * grunt-fixmyjs <https://github.com/jonschlinkert/grunt-fixmyjs>
  *
- * Copyright (c) 2014 Jon Schlinkert
- * Licensed under the MIT license.
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
  */
 
 'use strict';
@@ -16,20 +15,12 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/*.js',
-        '<%= nodeunit.tests %>'
-      ],
-      options: {
-        jshintrc: '.jshintrc'
-      }
+      all: ['Gruntfile.js', 'tasks/*.js', '<%= nodeunit.tests %>'],
+      options: {jshintrc: '.jshintrc'}
     },
 
     // Before generating any new files, remove any previously-created files.
-    clean: {
-      tests: ['tmp/**/*']
-    },
+    clean: {tests: ['tmp/**/*']},
 
     fixmyjs: {
       options: {
@@ -52,10 +43,7 @@ module.exports = function(grunt) {
     },
 
     // Unit tests.
-    nodeunit: {
-      tests: ['test/*_test.js'],
-    }
-
+    nodeunit: {tests: ['test/*_test.js']}
   });
 
   // Actually load this plugin's task(s).
