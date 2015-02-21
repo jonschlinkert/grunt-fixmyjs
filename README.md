@@ -2,6 +2,8 @@
 
 > Automatically fix silly lint errors.
 
+Please go to [fixmyjs](https://github.com/jshint/fixmyjs) to create issues or ask questions related to that project. This is just a grunt plugin for running fixmyjs.
+
 ## Getting Started
 _If you haven't used [grunt][] before, be sure to check out the [Getting Started][] guide._
 
